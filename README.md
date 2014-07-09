@@ -15,6 +15,7 @@ if(window.TiltControls.supported)
 			var upDownTilt = event.degY;
 		});
 ```
+Values are in degrees. Devices may rotate after about 25-30 degrees of rotation.
 
 ##License##
 
