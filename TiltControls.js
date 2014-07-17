@@ -8,6 +8,8 @@
 	var eventObject = {degX: 0, degY: 0};
 	var listeners = [];
 
+	TiltControls.useTopWindow = false;
+
 	Object.defineProperty(TiltControls, 'supported', {
 		get: function()
 		{
@@ -47,7 +49,12 @@
 
 	var eventListenerFunction = function(event)
 	{
-		switch(window.orientation)
+		var orientation;
+		if(TiltControls.useTopWindow)
+			orientation = window.top.orientation;
+		else
+			orientation = window.orientation;
+		switch(orientation)
 		{
 			case 0:
 				eventObject.degX = event.gamma;
